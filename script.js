@@ -76,6 +76,24 @@ const openEventPopup = (day) => {
   const eventPopup = document.getElementById("event-popup");
   const eventDate = document.getElementById("event-date");
   const eventInput = document.getElementById("event-input");
+  const eventList = document.getElementById("event-list");
+  
+  // Display the selected date
+  eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
+  
+  // Display previously entered entries
+  const storedEvents = fetchEventsData();
+  eventList.innerHTML = "";
+  storedEvents.forEach(event => {
+    const listItem = document.createElement("li");
+    listItem.textContent = event.details;
+    eventList.appendChild(listItem);
+  });
+
+  eventInput.value = "";
+
+  eventPopup.style.display = "block";
+};
 
   eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
   eventInput.value = "";
@@ -125,7 +143,7 @@ fetchEventsData().then(events => {
 
 // Function to save events data to GitHub
 const saveEventsData = async (events) => {
-  const response = await fetch('https://api.github.com/repos/your-username/your-repo/contents/events.json', {
+  const response = await fetch('https://api.github.com/repos/jameswalsh78/calendar/contents/events.json', {
     method: 'PUT',
     headers: {
       'Authorization': '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',
