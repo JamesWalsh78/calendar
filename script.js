@@ -89,12 +89,7 @@ const openEventPopup = (day) => {
     listItem.textContent = event.details;
     eventList.appendChild(listItem);
   });
-/*
-  eventInput.value = "";
 
-  eventPopup.style.display = "block";
-};
-*/
   eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
   eventInput.value = "";
 

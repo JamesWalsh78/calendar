@@ -52,6 +52,13 @@ h1 {
     cursor: pointer;
 }
 
+.prev-month-btn {
+    order: -1; /* Move to the left */
+}
+
+.next-month-btn {
+    order: 1; /* Move to the right */
+
 .popup {
     display: none;
     position: fixed;
