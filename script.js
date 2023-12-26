@@ -113,3 +113,40 @@ const openEventPopup = (day) => {
   document.getElementById("save-event-btn").addEventListener("click", saveEvent);
   document.getElementById("cancel-event-btn").addEventListener("click", closeEventPopup);
   
+  // Function to fetch events data from GitHub
+const fetchEventsData = async () => {
+  const response = await fetch('https://raw.githubusercontent.com/jameswalsh78/calendar/main/events.json');
+  const data = await response.json();
+  return data.events;
+};
+
+// Example usage
+fetchEventsData().then(events => {
+  console.log(events);
+  // Handle and display events in your web app as needed
+});
+
+// Function to save events data to GitHub
+const saveEventsData = async (events) => {
+  const response = await fetch('https://api.github.com/repos/your-username/your-repo/contents/events.json', {
+    method: 'PUT',
+    headers: {
+      'Authorization': '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',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      message: 'Update events data',
+      content: btoa(JSON.stringify({ events })),
+      sha: 'GET-THE-LATEST-SHA-FROM-GITHUB',
+    }),
+  });
+  const result = await response.json();
+  console.log(result);
+};
+
+// Example usage
+const newEvent = { date: '2023-12-25', details: 'Holiday party' };
+fetchEventsData().then(events => {
+  events.push(newEvent);
+  saveEventsData(events);
+});
