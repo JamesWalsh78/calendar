@@ -15,7 +15,7 @@ const monthNames = [
 
 // Function to fetch events data from GitHub
 const fetchEventsData = async () => {
-  const response = await fetch('https://raw.githubusercontent.com/your-username/your-repo/main/events.json');
+  const response = await fetch('https://raw.githubusercontent.com/jameswalsh78/calendar/main/events.json');
   const data = await response.json();
   return data;
 };
