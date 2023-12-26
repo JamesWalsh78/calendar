@@ -1,93 +1,79 @@
-/* Reset some default styles */
-body, h1, p {
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-body {
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #f0f0f0;
-    }
-    
-    .calendar {
-        text-align: center;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
-    
-    h1 {
-        color: #a54747;
-    }
-    
-    .days {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 10px;
-    }
-    
-    .day, .day-heading {
-        padding: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        background-color: #eee;
-    }
-    
-    .day-heading {
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    .day.empty {
-        visibility: hidden;
-    }
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    
-    .popup-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        text-align: center;
-    }
-    /* ... (previous styles) ... */
+.calendar {
+    text-align: center;
+}
 
-.day ul {
+div > button {
+    margin: 5px;
+}
+
+.day {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+.day-heading {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.day li {
+li {
     background-color: #4caf50;
     color: #fff;
     padding: 5px;
     margin: 2px;
     border-radius: 4px;
 }
-
-/* ... (remaining styles) ... */
-
-}
-
-/* Add your styles for the calendar and events here */
