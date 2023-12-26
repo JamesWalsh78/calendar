@@ -1,3 +1,17 @@
+// Get the current date
+let currentDate = new Date();
+
+// Get the container elements
+const calendarContainer = document.getElementById("calendar-container");
+const monthHeading = document.getElementById("month-heading");
+const calendarDays = document.getElementById("calendar-days");
+
+// Array of month names
+const monthNames = [
+  "January", "February", "March", "April",
+  "May", "June", "July", "August",
+  "September", "October", "November", "December"
+];
 // Function to update the calendar
 const updateCalendar = () => {
     // Set the month heading
@@ -41,3 +55,21 @@ const updateCalendar = () => {
     // ... (any additional logic or customization)
   };
   
+// Initial calendar update
+updateCalendar();
+
+// Function to go to the next month
+const nextMonth = () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  updateCalendar();
+};
+
+// Function to go to the previous month
+const prevMonth = () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  updateCalendar();
+};
+
+// Attach event listeners to navigation buttons
+document.getElementById("next-month-btn").addEventListener("click", nextMonth);
+document.getElementById("prev-month-btn").addEventListener("click", prevMonth);
