@@ -77,10 +77,10 @@ const openEventPopup = (day) => {
   const eventDate = document.getElementById("event-date");
   const eventInput = document.getElementById("event-input");
   const eventList = document.getElementById("event-list");
-/*  
+  
   // Display the selected date
   eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
-  */
+  
   // Display previously entered entries
   const storedEvents = fetchEventsData();
   eventList.innerHTML = "";
