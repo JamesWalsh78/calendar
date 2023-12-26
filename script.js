@@ -59,7 +59,7 @@ const updateCalendar = () => {
     calendarDay.textContent = day;
     calendarDays.appendChild(calendarDay);
   }
-
+};
 // Initial calendar update
 updateCalendar();
 
