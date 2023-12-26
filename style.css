@@ -40,10 +40,15 @@ div > button {
     cursor: pointer;
 }
 
-#month-heading {
+.month-heading {
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
 .day {
     display: inline-block;
@@ -105,4 +110,5 @@ li {
     padding: 5px;
     margin: 2px;
     border-radius: 4px;
+}
 }

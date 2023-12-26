@@ -108,3 +108,4 @@ const openEventPopup = (date) => {
 // Attach event listeners to navigation buttons
 document.getElementById("next-month-btn").addEventListener("click", nextMonth);
 document.getElementById("prev-month-btn").addEventListener("click", prevMonth);
+}
