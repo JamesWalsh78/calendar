@@ -13,6 +13,13 @@ const monthNames = [
   "September", "October", "November", "December"
 ];
 
+// Function to fetch events data from GitHub
+const fetchEventsData = async () => {
+  const response = await fetch('https://raw.githubusercontent.com/james.walsh78/calendar/main/events.json');
+  const data = await response.json();
+  return data.events;
+};
+
 // Function to update the calendar
 const updateCalendar = () => {
   // Set the month heading
@@ -53,9 +60,6 @@ const updateCalendar = () => {
     calendarDays.appendChild(calendarDay);
   }
 
-  // ... (any additional logic or customization)
-};
-
 // Initial calendar update
 updateCalendar();
 
@@ -90,7 +94,6 @@ const openEventPopup = (day) => {
     eventList.appendChild(listItem);
   });
 
-  eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
   eventInput.value = "";
 
   eventPopup.style.display = "block";
@@ -122,13 +125,6 @@ calendarDaysContainer.addEventListener("click", (event) => {
 // Attach event listeners to popup buttons
 document.getElementById("save-event-btn").addEventListener("click", saveEvent);
 document.getElementById("cancel-event-btn").addEventListener("click", closeEventPopup);
-
-// Function to fetch events data from GitHub
-const fetchEventsData = async () => {
-  const response = await fetch('https://raw.githubusercontent.com/james.walsh78/calendar/main/events.json');
-  const data = await response.json();
-  return data.events;
-};
 
 // Example usage
 fetchEventsData().then(events => {
