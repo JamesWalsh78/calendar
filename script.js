@@ -80,7 +80,7 @@ const openEventPopup = (day) => {
 /*  
   // Display the selected date
   eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
-  
+  */
   // Display previously entered entries
   const storedEvents = fetchEventsData();
   eventList.innerHTML = "";
@@ -89,7 +89,7 @@ const openEventPopup = (day) => {
     listItem.textContent = event.details;
     eventList.appendChild(listItem);
   });
-
+/*
   eventInput.value = "";
 
   eventPopup.style.display = "block";
