@@ -5,7 +5,45 @@ body, h1, p {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+    }
+    
+    .calendar {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    
+    h1 {
+        color: #333;
+    }
+    
+    .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+    }
+    
+    .day {
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #eee;
+    }
+    
+    .day.empty {
+        visibility: hidden;
+    }
 }
 
 /* Add your styles for the calendar and events here */
