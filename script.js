@@ -73,11 +73,15 @@ const updateCalendar = async () => {
     }
 
     calendarDay.textContent = day;
-    calendarDays.appendChild(calendarDay);
-  }
 
-  // ... (any additional logic or customization)
-};
+  }
+   // Add click event for adding events
+   calendarDay.addEventListener("click", () => {
+    const eventDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${day}`;
+    openEventPopup(eventDate);
+  });
+
+  calendarDays.appendChild(calendarDay);
 
 // Initial calendar update
 updateCalendar();
@@ -92,6 +96,13 @@ const nextMonth = () => {
 const prevMonth = () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   updateCalendar();
+};
+
+// Function to open the event popup
+const openEventPopup = (date) => {
+  // Add logic to open the popup and handle events
+  console.log(`Add event for date: ${date}`);
+  // You can add your logic to handle the event popup here
 };
 
 // Attach event listeners to navigation buttons

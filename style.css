@@ -54,6 +54,7 @@ div > button {
     cursor: pointer;
     border-radius: 50%;
     background-color: #fff;
+    position: relative;
 }
 
 .empty {
