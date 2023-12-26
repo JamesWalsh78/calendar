@@ -73,3 +73,43 @@ const prevMonth = () => {
 // Attach event listeners to navigation buttons
 document.getElementById("next-month-btn").addEventListener("click", nextMonth);
 document.getElementById("prev-month-btn").addEventListener("click", prevMonth);
+
+// Function to open the event popup
+const openEventPopup = (day) => {
+    const eventPopup = document.getElementById("event-popup");
+    const eventDate = document.getElementById("event-date");
+    const eventInput = document.getElementById("event-input");
+  
+    eventDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
+    eventInput.value = "";
+  
+    eventPopup.style.display = "block";
+  };
+  
+  // Function to close the event popup
+  const closeEventPopup = () => {
+    const eventPopup = document.getElementById("event-popup");
+    eventPopup.style.display = "none";
+  };
+  
+  // Function to save the event
+  const saveEvent = () => {
+    const eventInput = document.getElementById("event-input").value;
+    // You can handle the event data as needed, e.g., save to a database, update UI, etc.
+    console.log(`Event saved: ${eventInput}`);
+    closeEventPopup();
+  };
+  
+  // Attach event listener to each calendar day
+  const calendarDaysContainer = document.getElementById("calendar-days");
+  calendarDaysContainer.addEventListener("click", (event) => {
+    const clickedDay = event.target.textContent;
+    if (clickedDay.trim() !== "") {
+      openEventPopup(clickedDay);
+    }
+  });
+  
+  // Attach event listeners to popup buttons
+  document.getElementById("save-event-btn").addEventListener("click", saveEvent);
+  document.getElementById("cancel-event-btn").addEventListener("click", closeEventPopup);
+  
